@@ -103,7 +103,7 @@ public class UserResource {
     @DELETE
     @Path("user/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response deleteUser(@PathParam("id") long id)  {
+    public Response deleteUser(@PathParam("id") long id) {
         UserDTO userDeleted = facade.deleteUser(id);
         return Response.ok().entity(GSON.toJson(userDeleted)).build();
     }
