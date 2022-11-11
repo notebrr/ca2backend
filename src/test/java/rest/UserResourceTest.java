@@ -167,11 +167,10 @@ class UserResourceTest {
 
     @Test
     void deleteUser() {
-        int userIdToDelete = 2;
         given()
                 .header("Content-type", ContentType.JSON)
                 .when()
-                .delete("/info/user/" +userIdToDelete)
+                .delete("/info/user/" + u1.getId())
                 .then()
                 .statusCode(200);
     }
