@@ -147,7 +147,7 @@ public class LogInEndPointTest {
                 .when()
                 .get("/info/user").then()
                 .statusCode(200)
-                .body("msg", equalTo("Hello to User: user"));
+                .body(equalTo("user"));
     }
 
     @Test
@@ -185,6 +185,7 @@ public class LogInEndPointTest {
                 .body("msg", equalTo("Hello to (admin) User: user_admin"));
     }
 
+
     @Test
     public void testRestForMultiRole2() {
         login("user_admin", "test");
@@ -194,8 +195,9 @@ public class LogInEndPointTest {
                 .when()
                 .get("/info/user").then()
                 .statusCode(200)
-                .body("msg", equalTo("Hello to User: user_admin"));
+                .body(equalTo("user_admin"));
     }
+
 
     @Test
     public void userNotAuthenticated() {
