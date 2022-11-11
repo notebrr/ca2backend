@@ -55,8 +55,7 @@ public class UserResource {
     @Path("user")
     @RolesAllowed("user")
     public String getFromUser() {
-        String thisuser = securityContext.getUserPrincipal().getName();
-        return "otheruser";
+        return securityContext.getUserPrincipal().getName();
     }
 
     @GET
@@ -104,7 +103,7 @@ public class UserResource {
     @DELETE
     @Path("user/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response deleteUser(@PathParam("id") long id) throws API_Exception {
+    public Response deleteUser(@PathParam("id") long id)  {
         UserDTO userDeleted = facade.deleteUser(id);
         return Response.ok().entity(GSON.toJson(userDeleted)).build();
     }
